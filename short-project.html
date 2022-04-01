@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Multicolored Progress bar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link type="text/css" href="shortstyle.css" rel="stylesheet" />-->
+        <style type="text/css">
+/* Global declarations */
+
+body {
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+        /*font-family: 'Trebuchet Ms';*/
+	font-size:70%;
+	position:relative;
+        height: 100%;
+        width: 500px;
+        margin: auto;
+        
+}
+
+.my-container {
+        position:relative;
+	padding:3px 20px 23px 25px;
+ 	width:auto;
+        margin-top: 40px;
+        background-color: #e4e4e4;
+}
+
+.light-grey {
+    width: auto; 
+    margin: auto;
+    background-color: #f1f1f1;
+    border-radius: 25px;
+    text-align: right;
+    position: relative;
+}
+
+.my-green {
+    background-color: #9ACD32;
+    height:15px;
+    width:50%;
+    border-top: solid 2px #9ACD32;
+    border-bottom: solid 1px #A1A1A1;
+    border-radius: 25px;
+    background: repeating-linear-gradient(135deg, #9ACD32, #9ACD32 2px, #66FF00 3.5px);
+    background: -moz-repeating-linear-gradient(135deg, #9ACD32, #9ACD32 2px, #66FF00 3.5px);
+    background: -webkit-repeating-linear-gradient(135deg, #9ACD32, #9ACD32 2px, #66FF00 3.5px);
+    background: -o-repeating-linear-gradient(135deg, #9ACD32, #9ACD32 2px, #66FF00 3.5px);
+    background: -ms-repeating-linear-gradient(135deg, #9ACD32, #9ACD32 2px, #66FF00 3.5px);
+    
+    
+    filter: brightness(110%);
+    -ms-filter: brightness(110%);
+    
+    box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -ms-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -moz-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -webkit-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+/*    top: 1.15px;
+    position: relative;*/
+}
+
+.color-text{
+    padding-right: 8px;
+    color: #525252;
+    filter: brightness(60%);
+    -ms-filter: brightness(60%);
+}
+
+.color-text-white{
+    padding-right: 8px;
+    color: #A1A1A1;
+}
+
+.my-red {
+    background-color: #F08080;
+    height:15px;
+    width:50%;
+    filter: brightness(110%);
+    -ms-filter: brightness(110%);
+    
+    border-top: solid 2px #F08080;
+    border-bottom: solid 1px #A1A1A1;
+    border-radius: 25px;
+    background: repeating-linear-gradient(135deg, #F08080, #F08080 2px, #ff9966 3.5px);
+    background: -moz-repeating-linear-gradient(135deg, #F08080, #F08080 2px, #ff9966 3.5px);
+    background: -webkit-repeating-linear-gradient(135deg, #F08080, #F08080 2px, #ff9966 3.5px);
+    background: -o-repeating-linear-gradient(135deg, #F08080, #F08080 2px, #ff9966 3.5px);
+    background: -ms-repeating-linear-gradient(135deg, #F08080, #F08080 2px, #ff9966 3.5px);
+                    
+    /*box-shadow: 0.1px 0.2px 0.2px 0.1px #F08080;*/
+/*    top: 1.15px;
+    position: relative;*/
+}
+
+.my-white {
+    height:15px;
+    width:50%;
+    border-top: solid 2px #ffffff;
+    border-bottom: solid 1px #ffffff;
+    border-radius: 25px;
+    background-color: #ffffff;
+                    
+    box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -ms-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -moz-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -webkit-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -o-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    /*top: 1.15px;*/
+    /*position: relative;*/
+}
+
+.my-blue {
+    background-color: #ADD8E6;
+    height:15px;
+    width:50%;
+    border-radius: 25px;
+    border-top: solid 2px #ADD8E6;
+    border-bottom: solid 1px #A1A1A1;
+    background: repeating-linear-gradient(135deg, #ADD8E6, #ADD8E6 2px, #ace5ee 3.5px);
+    background: -moz-repeating-linear-gradient(135deg, #ADD8E6, #ADD8E6 2px, #ace5ee 3.5px);
+    background: -webkit-repeating-linear-gradient(135deg, #ADD8E6, #ADD8E6 2px, #ace5ee 3.5px);
+    background: -o-repeating-linear-gradient(135deg, #ADD8E6, #ADD8E6 2px, #ace5ee 3.5px);
+    background: -ms-repeating-linear-gradient(135deg, #ADD8E6, #ADD8E6 2px, #ace5ee 3.5px);
+    
+    
+    box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -ms-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -moz-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -webkit-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -o-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+/*    top: 1.15px;
+    position: relative;*/
+}
+
+.my-yellow {
+    background-color: #ffCD70;
+    height:15px;
+    width:50%;
+    border-radius: 25px;
+    border-top: solid 2px #ffCD70;
+    border-bottom: solid 1px #A1A1A1;
+    filter: brightness(110%);
+    -ms-filter: brightness(110%);
+    
+    background: repeating-linear-gradient(135deg, #ffCD70, #ffCD70 2px, #ffbb3d 3.5px);
+    background: -moz-repeating-linear-gradient(135deg, #ffCD70, #ffCD70 2px, #ffbb3d 3.5px);
+    background: -webkit-repeating-linear-gradient(135deg, #ffCD70, #ffCD70 2px, #ffbb3d 3.5px);
+    background: -o-repeating-linear-gradient(135deg, #ffCD70, #ffCD70 2px, #ffbb3d 3.5px);
+    background: -ms-repeating-linear-gradient(135deg, #ffCD70, #ffCD70 2px, #ffbb3d 3.5px);
+    
+    box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -ms-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -moz-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -webkit-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+    -o-box-shadow: 0.1px 0.2px 0.2px 0.1px #525252;
+/*    top: 1.16px;
+    position: relative;*/
+}
+
+.my-button {
+        position:relative;
+	padding:3px 10px 3px 10px;
+	text-decoration:none;
+ 	width:auto;
+ 	display:inline-block;
+ 	margin-right:10px;
+        font-weight: bold;
+}
+            
+        </style>
+    </head>
+    <body>
+     
+<div class="my-container">    
+  <h2>Progress Bars</h2>
+
+  <div class="light-grey">
+    <div id="myBar" class="my-green">
+        <span class="color-text" id="text1">50%</span>
+    </div>
+  </div>
+  <br>
+  
+  <div class="light-grey">
+    <div id="myBar1" class="my-red">
+        <span class="color-text" id="text2">50%</span>
+    </div>
+  </div>
+  <br>
+  
+  <div class="light-grey">
+    <div id="myBar2" class="my-white">
+        <span class="color-text-white" id="text3">50%</span>
+    </div>
+  </div>
+  <br>
+  
+  <div class="light-grey">
+    <div id="myBar3" class="my-blue">
+        <span class="color-text" id="text4">50%</span>
+    </div>
+  </div>
+  <br>
+  
+  <div class="light-grey">
+    <div id="myBar4" class="my-yellow">
+        <span class="color-text" id="text5">50%</span>
+    </div>
+  </div>
+  <br>
+
+<button class="my-button" onclick="move()">Finish</button>
+
+</div>        
+        
+        
+<script>
+function move() {
+  var elem = document.getElementById("myBar");
+  var elem1 = document.getElementById("myBar1");
+  var elem2 = document.getElementById("myBar2");
+  var elem3 = document.getElementById("myBar3");
+  var elem4 = document.getElementById("myBar4");
+  var width = 50;
+  //setInterval determines the speed of the progress bar
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+     //style.width is responsible for animating all the progress bar until
+    //it gets to 100%  
+      width++; 
+      elem.style.width = width + '%';
+      elem1.style.width = width + '%';
+      elem2.style.width = width + '%';
+      elem3.style.width = width + '%';
+      elem4.style.width = width + '%';
+      
+    // document.getElementById is responsible for appending all width
+    //values to the div elements respectively
+    document.getElementById("text1").innerHTML = elem.style.width;
+    document.getElementById("text2").innerHTML = elem1.style.width;
+    document.getElementById("text3").innerHTML = elem2.style.width;
+    document.getElementById("text4").innerHTML = elem3.style.width;
+    document.getElementById("text5").innerHTML = elem4.style.width;
+
+    }
+  }
+}
+</script>
+    </body>
+</html>
